@@ -1,4 +1,4 @@
-# Manage Azure Machine Learning Compute Insatance 
+# Manage Azure Machine Learning Compute Insatance
 
 ## Challenge
 
@@ -12,13 +12,13 @@ Not only that users need to manage exceptions to keep CIs overnight for long-run
 
 ## Solution
 
-An objective is create a job that turns off Compute Instances in Azure Machine Learning Workspace at midnight to save cost. 
+An objective is create a job that turns off Compute Instances in Azure Machine Learning Workspace at midnight to save cost.
 
 To make the job automate, the job will be triggered by logicapp/functions and a shell script will be executed.
 
 A form will be provided to users to make exception request to prevent long running training job termination in a particular CI,
 
-To have an execution environment, build a custom docker image that has Azure Cli with ML extension and shell script. 
+To have an execution environment, build a custom docker image that has Azure Cli with ML extension and shell script.
 
 The image will be provisioned based on schedule and execute the script.
 
@@ -28,3 +28,8 @@ The image will be provisioned based on schedule and execute the script.
 ![](./images/azml-mg-ci-00.png)
 
 
+### Stop Compute Instance 
+
+You can stop CI (Compute Instances) using azure cli ml extension. 
+
+As you can't control CIs with REST
