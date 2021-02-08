@@ -1,7 +1,11 @@
 #!/bin/bash
 
-ver="0.01"
+ver="0.02"
 echo "aml-ci-create version $ver"
+
+# Config update for dynamic extension install 
+az config set extension.use_dynamic_install=yes_without_prompt
+
 
 # Install Azure ML CLI
 echo "***installing Azure ML CLI...***"
@@ -71,7 +75,7 @@ then
         userid=$(echo "${item}" | jq -r '.UserID')
 
         # If specified name of VM is already in use  following command won't work
-        az ml computetarget create computeinstance -n $name --vm-size $vmsize -w $workspacename -g $resourcegroupname --user-tenant-id "'$tenantid'" --user-object-id "'$userid'" --verbose
+        az ml computetarget create computeinstance -n $name --vm-size $vmsize -w $workspacename -g $resourcegroupname --user-tenant-id "'$tenantid'" --user-object-id "'$userid'" --no-wait --verbose
     done
 
     echo "Compute Instance creation process completed"

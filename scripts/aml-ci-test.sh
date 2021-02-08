@@ -1,7 +1,11 @@
 #!/bin/bash
 
-ver="0.01"
+ver="0.02"
 echo "test script version $ver"
+
+# Config update for dynamic extension install 
+az config set extension.use_dynamic_install=yes_without_prompt
+
 
 # Install Azure ML CLI
 echo "***installing Azure ML CLI...***"
