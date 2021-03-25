@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerInstanceCpu": {
+      "value": "2"
+    },
+    "containerInstanceMemory": {
+      "value": "4"
+    },
+    "logicAppCount": {
+      "value": "60"
+    },
+    "logicAppTimeout": {
+      "value": "PT1H"
+    },
+    "logicAppTriggerHour": {
+      "value": "23"
+    },
+    "logicAppTriggerMinute": {
+      "value": "00"
+    },
+    "namePrefix": {
+      "value": "azmlci"
+    },
+    "storageAccountKey": {
+      "value": ""
+    }
+  }
+}

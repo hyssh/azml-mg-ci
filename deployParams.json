@@ -1,0 +1,14 @@
+{
+  "containerInstanceCpu": "2",
+  "containerInstanceMemory": "4",
+  "location": "westus2",
+  "logicAppCount": "60",
+  "logicAppTimeout": "PT1H",
+  "logicAppTriggerHour": "23",
+  "logicAppTriggerMinute": "00",
+  "Name": "azmlci",
+  "managedResourceGroups": [
+    "mtcs-dev-azml-rg",
+    "mtcs-stg-azml-rg"
+  ]
+}
