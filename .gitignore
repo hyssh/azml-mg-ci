@@ -128,5 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# my test file
-/scripts/test.sh
+# Solution specific files
+.DS_Store
+*.log
