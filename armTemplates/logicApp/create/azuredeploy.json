@@ -98,7 +98,8 @@
                                     "identity": {
                                         "type": "UserAssigned",
                                         "userAssignedIdentities": {
-                                        "[concat(subscription().id, '/resourceGroups/', resourcegroup().name, '/providers/Microsoft.ManagedIdentity/userAssignedIdentities/', variables('managedIdentityName'))]": {}                                        }
+                                            "[concat(subscription().id, '/resourceGroups/', resourcegroup().name, '/providers/Microsoft.ManagedIdentity/userAssignedIdentities/', variables('managedIdentityName'))]": {}
+                                        }
                                     },
                                     "location": "[resourcegroup().location]",
                                     "properties": {
@@ -261,11 +262,17 @@
                                         }
                                     },
                                     "expression": {
-                                        "and": [
+                                        "or": [
                                             {
                                                 "equals": [
                                                     "@body('Get_properties_of_a_container_group')?['properties']?['instanceView']?['state']",
                                                     "Succeeded"
+                                                ]
+                                            },
+                                            {
+                                                "equals": [
+                                                    "@body('Get_properties_of_a_container_group')?['properties']?['instanceView']?['state']",
+                                                    "Failed"
                                                 ]
                                             }
                                         ]

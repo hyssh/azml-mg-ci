@@ -283,11 +283,17 @@
                                                 }
                                             },
                                             "expression": {
-                                                "and": [
+                                                "or": [
                                                     {
                                                         "equals": [
                                                             "@body('Get_properties_of_a_container_group')?['properties']?['instanceView']?['state']",
                                                             "Succeeded"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "equals": [
+                                                            "@body('Get_properties_of_a_container_group')?['properties']?['instanceView']?['state']",
+                                                            "Failed"
                                                         ]
                                                     }
                                                 ]
@@ -484,11 +490,17 @@
                                                     }
                                                 },
                                                 "expression": {
-                                                    "and": [
+                                                    "or": [
                                                         {
                                                             "equals": [
-                                                                "@body('Get_properties_of_a_container_group_without_ENV')?['properties']?['instanceView']?['state']",
+                                                                "@body('Get_properties_of_a_container_group')?['properties']?['instanceView']?['state']",
                                                                 "Succeeded"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "equals": [
+                                                                "@body('Get_properties_of_a_container_group')?['properties']?['instanceView']?['state']",
+                                                                "Failed"
                                                             ]
                                                         }
                                                     ]
