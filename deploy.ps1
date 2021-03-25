@@ -24,15 +24,12 @@ $logFile = "./deploy_$(get-date -format `"yyyyMMddhhmmsstt`").log"
 Function ValidateName
 {
     param (
-    [ValidateLength(6,17)]
-    [ValidatePattern('^(?!-)(?!.*--)[a-z]')]
-    [parameter(Mandatory=$true)]
-    [string]
-    $Name
-)
-
- write-host "Name is"$Name
-
+        [ValidateLength(6,17)]
+        [ValidatePattern('^(?!-)(?!.*--)[a-z]')]
+        [parameter(Mandatory=$true)]
+        [string]
+        $Name
+    )
 }
 
 ValidateName $Name
