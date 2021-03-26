@@ -30,7 +30,7 @@ References
 
 ## Solution
 
-An objective is create a job that turns off Compute Instances in Azure Machine Learning Workspace at midnight to save cost.
+An objective of this project is create a job that turns off Compute Instances in Azure Machine Learning Workspace at midnight to save cost. And, of course, the cost to run the job must be low or minimized.
 
 To make the job automate, the job will be triggered by logicapp/functions and a shell script will be executed.
 
