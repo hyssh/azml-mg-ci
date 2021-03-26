@@ -2,6 +2,30 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "containerInstanceCreateCpu": {
+            "type": "string",
+            "metadata": {
+                "description": "The CPU configuration for the Container Instance"
+            }
+        },
+        "containerInstanceCreateMemory": {
+            "type": "string",
+            "metadata": {
+                "description": "The memory configuration for the Container Instance"
+            }
+        },
+        "logicAppCreateCount": {
+            "type": "string",
+            "metadata": {
+                "description": "The"
+            }
+        },
+        "logicAppCreateTimeout": {
+            "type": "string",
+            "metadata": {
+                "description": "The memory configuration for the Container Instance"
+            }
+        },
         "namePrefix": {
             "type": "string",
             "metadata": {
@@ -127,8 +151,8 @@
                                                     ],
                                                     "resources": {
                                                         "requests": {
-                                                            "cpu": 1,
-                                                            "memoryInGB": 2
+                                                            "cpu": "[parameters('containerInstanceCreateCpu')]",
+                                                            "memoryInGB": "[parameters('containerInstanceCreateMemory')]"
                                                         }
                                                     },
                                                     "volumeMounts": [
@@ -303,8 +327,8 @@
                             },
                             "expression": "@equals(variables('isDone'), true)",
                             "limit": {
-                                "count": 60,
-                                "timeout": "PT1H"
+                                "count": "[parameters('logicAppCreateCount')]",
+                                "timeout": "[parameters('logicAppCreateTimeout')]"
                             },
                             "type": "Until"
                         }

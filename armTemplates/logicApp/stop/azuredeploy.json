@@ -2,37 +2,37 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "containerInstanceCpu": {
+        "containerInstanceStopCpu": {
             "type": "string",
             "metadata": {
                 "description": "The CPU configuration for the Container Instance"
             }
         },
-        "containerInstanceMemory": {
+        "containerInstanceStopMemory": {
             "type": "string",
             "metadata": {
                 "description": "The memory configuration for the Container Instance"
             }
         },
-        "logicAppCount": {
+        "logicAppStopCount": {
             "type": "string",
             "metadata": {
                 "description": "The"
             }
         },
-        "logicAppTimeout": {
+        "logicAppStopTimeout": {
             "type": "string",
             "metadata": {
                 "description": "The memory configuration for the Container Instance"
             }
         },
-        "logicAppTriggerHour": {
+        "logicAppStopTriggerHour": {
             "type": "string",
             "metadata": {
                 "description": "The hour when to trigger the Logic App"
             }
         },
-        "logicAppTriggerMinute": {
+        "logicAppStopTriggerMinute": {
             "type": "string",
             "metadata": {
                 "description": "The minute when to trigger the Logic App"
@@ -86,10 +86,10 @@
                                 "interval": 1,
                                 "schedule": {
                                     "hours": [
-                                        "[parameters('logicAppTriggerHour')]"
+                                        "[parameters('logicAppStopTriggerHour')]"
                                     ],
                                     "minutes": [
-                                        "[parameters('logicAppTriggerMinute')]"
+                                        "[parameters('logicAppStopTriggerMinute')]"
                                     ]
                                 },
                                 "startTime": "2020-11-26T00:01:00",
@@ -142,8 +142,8 @@
                                                             ],
                                                             "resources": {
                                                                 "requests": {
-                                                                    "cpu": "[parameters('containerInstanceCpu')]",
-                                                                    "memoryInGB": "[parameters('containerInstanceMemory')]"
+                                                                    "cpu": "[parameters('containerInstanceStopCpu')]",
+                                                                    "memoryInGB": "[parameters('containerInstanceStopMemory')]"
                                                                 }
                                                             },
                                                             "volumeMounts": [
@@ -324,8 +324,8 @@
                                     },
                                     "expression": "@equals(variables('isDone'), true)",
                                     "limit": {
-                                        "count": "[parameters('logicAppCount')]",
-                                        "timeout": "[parameters('logicAppTimeout')]"
+                                        "count": "[parameters('logicAppStopCount')]",
+                                        "timeout": "[parameters('logicAppStopTimeout')]"
                                     },
                                     "type": "Until"
                                 }
@@ -531,8 +531,8 @@
                                         },
                                         "expression": "@equals(variables('isDone'), true)",
                                         "limit": {
-                                            "count": "[parameters('logicAppCount')]",
-                                            "timeout": "[parameters('logicAppTimeout')]"
+                                            "count": "[parameters('logicAppStopCount')]",
+                                            "timeout": "[parameters('logicAppStopTimeout')]"
                                         },
                                         "type": "Until"
                                     }

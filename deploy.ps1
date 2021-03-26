@@ -9,13 +9,17 @@ $ErrorActionPreference = "Stop"
 
 # Intake and set parameters
 $parameters = Get-Content ./deployParams.json | ConvertFrom-Json
-$containerInstanceCpu = $parameters.containerInstanceCpu
-$containerInstanceMemory = $parameters.containerInstanceMemory
+$containerInstanceCreateCpu = $parameters.containerInstanceCreateCpu
+$containerInstanceCreateMemory = $parameters.containerInstanceCreateMemory
+$containerInstanceStopCpu = $parameters.containerInstanceStopCpu
+$containerInstanceStopMemory = $parameters.containerInstanceStopMemory
 $location = $parameters.location
-$logicAppCount = $parameters.logicAppCount
-$logicAppTimeout = $parameters.logicAppTimeout
-$logicAppTriggerHour = $parameters.logicAppTriggerHour
-$logicAppTriggerMinute = $parameters.logicAppTriggerMinute
+$logicAppCreateCount = $parameters.logicAppCreateCount
+$logicAppCreateTimeout = $parameters.logicAppCreateTimeout
+$logicAppStopCount = $parameters.logicAppStopCount
+$logicAppStopTimeout = $parameters.logicAppStopTimeout
+$logicAppStopTriggerHour = $parameters.logicAppStopTriggerHour
+$logicAppStopTriggerMinute = $parameters.logicAppStopTriggerMinute
 $managedResourceGroups = $parameters.managedResourceGroups
 $Name = $parameters.Name.ToLower()
 $logFile = "./deploy_$(get-date -format `"yyyyMMddhhmmsstt`").log"
@@ -208,6 +212,10 @@ try {
     Write-Host "INFO: Deploying ARM template to create Logic App CI Create Workflow" -ForegroundColor green
     Write-Verbose -Message "Deploying ARM Template to create Logic App CI Create workflow"
     $logicAppCreateParams = @{
+        'containerInstanceCreateCpu' = "$containerInstanceCreateCpu";
+        'containerInstanceCreateMemory' = "$containerInstanceCreateMemory";
+        'logicAppCreateCount' = "$logicAppCreateCount";
+        'logicAppCreateTimeout' = "$logicAppCreateTimeout";
         'namePrefix' = "$Name";
         'storageAccountKey' = $storageAccountDeployment.Outputs.Values.Value
     }
@@ -228,12 +236,12 @@ try {
     Write-Host "INFO: Deploying ARM template to create Logic App CI Stop Workflow" -ForegroundColor green
     Write-Verbose -Message "Deploying ARM Template to create Logic App CI Stop workflow"
     $logicAppStopParams = @{
-        'containerInstanceCpu' = "$containerInstanceCpu";
-        'containerInstanceMemory' = "$containerInstanceMemory";
-        'logicAppCount' = "$logicAppCount";
-        'logicAppTimeout' = "$logicAppTimeout";
-        'logicAppTriggerHour' = "$logicAppTriggerHour";
-        'logicAppTriggerMinute' = "$logicAppTriggerMinute";
+        'containerInstanceStopCpu' = "$containerInstanceStopCpu";
+        'containerInstanceStopMemory' = "$containerInstanceStopMemory";
+        'logicAppStopCount' = "$logicAppStopCount";
+        'logicAppStopTimeout' = "$logicAppStopTimeout";
+        'logicAppStopTriggerHour' = "$logicAppStopTriggerHour";
+        'logicAppStopTriggerMinute' = "$logicAppStopTriggerMinute";
         'namePrefix' = "$Name";
         'storageAccountKey' = $storageAccountDeployment.Outputs.Values.Value
     }

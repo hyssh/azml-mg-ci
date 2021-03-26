@@ -2,22 +2,22 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "containerInstanceCpu": {
+    "containerInstanceStopCpu": {
       "value": "2"
     },
-    "containerInstanceMemory": {
+    "containerInstanceStopMemory": {
       "value": "4"
     },
-    "logicAppCount": {
+    "logicAppStopCount": {
       "value": "60"
     },
-    "logicAppTimeout": {
+    "logicAppStopTimeout": {
       "value": "PT1H"
     },
-    "logicAppTriggerHour": {
+    "logicAppStopTriggerHour": {
       "value": "23"
     },
-    "logicAppTriggerMinute": {
+    "logicAppStopTriggerMinute": {
       "value": "00"
     },
     "namePrefix": {
