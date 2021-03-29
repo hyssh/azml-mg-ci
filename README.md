@@ -56,3 +56,51 @@ You can stop CI (Compute Instances) using azure cli ml extension.
 
 > You can reuse this approach to turn CI on in the week day monrning.
 
+## Deploying the Solution
+
+### Prerequisites
+
+To successfully deploy this solution, the following is required:
+
+- An existing Azure Subscription
+- Contributor Role permissions at the Subscription level
+- PowerShell v7.x or above (to faciliate cross platform development)
+- Azure PowerShell v5.7.x or above
+
+### Populating Deployment Parameters
+
+The parameters necessary to deploy this infrastructure are located in `deployParams.json` file. 
+Fill in the key value pairs and save before running `deploy.ps1`.
+
+**Example Parameters:**
+```
+{
+  "containerInstanceCreateCpu": "2",
+  "containerInstanceCreateMemory": "4",
+  "containerInstanceStopCpu": "2",
+  "containerInstanceStopMemory": "4",
+  "location": "westus2",
+  "logicAppCreateCount": "60",
+  "logicAppCreateTimeout": "PT1H",
+  "logicAppStopCount": "60",
+  "logicAppStopTimeout": "PT1H",
+  "logicAppStopTriggerHour": "23",
+  "logicAppStopTriggerMinute": "00",
+  "Name": "azmlci",
+  "managedResourceGroups": [
+    "dev-azml-rg",
+    "stg-azml-rg",
+    "prd-azml-rg"
+  ]
+}  
+```
+
+### Running the Deployment PowerShell Script:
+
+- Clone the repository down to your local machine
+- Fill in your parameter values in `deployParams.json` file, make sure to save the file
+- Run the deployment script `deploy.ps1` from project root
+
+### Steps to tear down the deployment:
+- Run `teardown.ps1` from project root
+    - The teardown script will use values from the `deployParams.json` file
