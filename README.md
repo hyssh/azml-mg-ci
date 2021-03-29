@@ -63,7 +63,7 @@ You can stop CI (Compute Instances) using azure cli ml extension.
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
 | `armTemplates/`    | ARM templates for infrastructure deployment.|
-| `code`             | Azure CLI shell scripts leveraged the the Logic Apps.|
+| `code/`             | Azure CLI shell scripts leveraged the the Logic Apps.|
 | `images/`          | Architecture designs.|
 | `powerAutomate/`   | Azure Automation Runbooks leveraged by the tool.|
 | `.gitignore`      | Define what to ignore at commit time.|
