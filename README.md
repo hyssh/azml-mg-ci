@@ -1,4 +1,4 @@
-# Manage Azure Machine Learning Compute Insatance
+# Manage Azure Machine Learning Compute Instance
 
 AML (Azure Machine Learning Service) is a data science platform for data scientists. The data scientists need one or more CI (Compute Instances) for different projects or experiments. Although the they are responsible for managing CI, sometime they forget that machines is on for nothing. If GPU attached machine or large size of machines are used, he cost of these unused CIs could be $ 1,000+ a week. 
 
