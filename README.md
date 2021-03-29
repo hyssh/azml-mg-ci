@@ -58,6 +58,23 @@ You can stop CI (Compute Instances) using azure cli ml extension.
 
 ## Deploying the Solution
 
+### Contents
+
+| File/folder       | Description                                |
+|-------------------|--------------------------------------------|
+| `armTemplates/`    | ARM templates for infrastructure deployment.|
+| `code`             | Azure CLI shell scripts leveraged the the Logic Apps.|
+| `images/`          | Architecture designs.|
+| `powerAutomate/`   | Azure Automation Runbooks leveraged by the tool.|
+| `.gitignore`      | Define what to ignore at commit time.|
+| `deploy.ps1`      | PowerShell script to deploy solution.|
+| `deployParams.json`| Deployment parameters used by `deploy.ps1` and `teardown.ps1`.|
+| `teardown.ps1`    | PowerShell script to decommission the tool. Makes testing and experimentation easy.|
+| `CHANGELOG.md`    | List of changes to the sample.             |
+| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
+| `README.md`       | This README file.                          |
+| `LICENSE`         | The license for the sample.                |
+
 ### Prerequisites
 
 To successfully deploy this solution, the following is required:
