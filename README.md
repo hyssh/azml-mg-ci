@@ -75,18 +75,24 @@ Fill in the key value pairs and save before running `deploy.ps1`.
 **Example Parameters:**
 ```
 {
+  // performance configurations for the CI Create and CI Stop container instances
   "containerInstanceCreateCpu": "2",
   "containerInstanceCreateMemory": "4",
   "containerInstanceStopCpu": "2",
   "containerInstanceStopMemory": "4",
+  // azure region to deploy solution to
   "location": "westus2",
+  // retry and timeout configurations for CI Create and CI Stop logic apps
   "logicAppCreateCount": "60",
   "logicAppCreateTimeout": "PT1H",
   "logicAppStopCount": "60",
   "logicAppStopTimeout": "PT1H",
+  // scheduled trigger configuration for CI Stop logic app
   "logicAppStopTriggerHour": "23",
   "logicAppStopTriggerMinute": "00",
+  // name prefix to use when naming all resource
   "Name": "azmlci",
+  // list or resource groups you want the solution to have rights to manage
   "managedResourceGroups": [
     "dev-azml-rg",
     "stg-azml-rg",
