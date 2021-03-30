@@ -4,7 +4,7 @@ AML (Azure Machine Learning Service) is a data science platform for data scienti
 
 Automated management of CIs in Azure Machine Learning Workspace is limited today. It doesn't support auto-start nor auto-stop. Even native Azure Cli doesn't support managing CIs.
 
-Other than AML Stuio, another way you can manage CIs is using Azure Cli with ML extension. But another potential problem could be that automated turning the CIs off has to be run on scheduled base without human intervention. 
+Other than AML Studio, another way you can manage CIs is using Azure Cli with ML extension. But another potential problem could be that automated turning the CIs off has to be run on scheduled base without human intervention. 
 
 Not only that users need to manage exceptions to keep CIs overnight for long-running model training.
 
