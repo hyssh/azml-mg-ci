@@ -72,7 +72,7 @@ then
             userid=$(echo "${item}" | jq -r '.UserID')
 
             # If specified name of VM is already in use  following command won't work
-            az ml computetarget create computeinstance -n $name --vm-size $vmsize -w $workspacename -g $resourcegroupname --vnet-name $vnetname --subnet-name $subnetname --vnet-resourcegroup-name $vnetresourcegroupname --user-tenant-id "'$tenantid'" --user-object-id "'$userid'" --no-wait -v
+            az ml computetarget create computeinstance -n $name --vm-size $vmsize -w $workspacename -g $resourcegroupname --vnet-name $vnetname --subnet-name $subnetname --vnet-resourcegroup-name $vnetresourcegroupname --user-tenant-id $tenantid --user-object-id $userid --no-wait -v
 
             echo "Compute Instance creation process completed"
 
@@ -92,7 +92,7 @@ then
             userid=$(echo "${item}" | jq -r '.UserID')
 
             # If specified name of VM is already in use  following command won't work
-            az ml computetarget create computeinstance -n $name --vm-size $vmsize -w $workspacename -g $resourcegroupname --user-tenant-id "'$tenantid'" --user-object-id "'$userid'" --no-wait -v
+            az ml computetarget create computeinstance -n $name --vm-size $vmsize -w $workspacename -g $resourcegroupname --user-tenant-id $tenantid --user-object-id $userid --no-wait -v
 
             echo "Compute Instance creation process completed"
 
