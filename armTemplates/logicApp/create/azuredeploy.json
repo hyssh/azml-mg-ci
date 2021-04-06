@@ -187,7 +187,7 @@
                                     }
                                 },
                                 "method": "put",
-                                "path": "[concat(subscription().id, '/resourceGroups/', resourcegroup().name, '/providers/Microsoft.ContainerInstance/containerGroups/', variables('containerInstanceName'))]",
+                                "path": "[concat(subscription().id, '/resourceGroups/', resourcegroup().name, '/providers/Microsoft.ContainerInstance/containerGroups/@{encodeURIComponent(concat(''', variables('containerInstanceName'),'-''', ',guid()))}')]",
                                 "queries": {
                                     "x-ms-api-version": "2019-12-01"
                                 }
